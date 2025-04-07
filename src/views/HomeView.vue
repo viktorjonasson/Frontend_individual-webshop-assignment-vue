@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+import ProductGrid from '@/components/ProductGrid.vue'
+import ProductList from '@/components/ProductList.vue'
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <ProductList />
 </template>
