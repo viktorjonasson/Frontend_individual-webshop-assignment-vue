@@ -1,17 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import ProductCard from './ProductCard.vue'
-
-interface Product {
-  id: number | string
-  title: string
-  brand: string
-  price: number
-  thumbnail: string
-  description: string
-  category: string
-  tags: string[]
-}
+import type { Product } from '@/product-services/product-dto.ts'
 
 const products = ref<Product[]>([])
 
@@ -37,7 +27,8 @@ function handleAddToCart(productId: number | string) {
 </script>
 
 <template>
-  <div class="product-list flex items-center justify-center w-full">
+  <h2 class="text-5xl">Products</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 w-full my-10">
     <ProductCard
       v-for="product in products"
       :key="product.id"

@@ -1,18 +1,6 @@
 <script setup lang="ts">
 import { defineProps, defineEmits } from 'vue'
-
-// Defining the interface for a product
-// TODO: Maybe move this to external file
-interface Product {
-  id: number | string
-  title: string
-  brand: string
-  price: number
-  thumbnail: string
-  description: string
-  category: string
-  tags: string[]
-}
+import type { Product } from '@/product-services/product-dto.ts'
 
 const props = defineProps({
   product: {
@@ -43,7 +31,7 @@ function addToCart() {
 </script>
 
 <template>
-  <div class="card bg-base-200 w-96 shadow-sm">
+  <div class="card bg-base-200 shadow-sm">
     <figure>
       <!--: is short for v-bind, meaning dynamically bind attributes and so on-->
       <img :src="product.thumbnail" :alt="product.title" />

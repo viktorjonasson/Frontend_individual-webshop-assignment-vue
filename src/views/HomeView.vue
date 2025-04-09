@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import ProductGrid from '@/components/ProductGrid.vue'
 import ProductList from '@/components/ProductList.vue'
 </script>
 
 <template>
-  <ProductList />
+  <div class="my-10">
+    <ProductList />
+  </div>
 </template>
