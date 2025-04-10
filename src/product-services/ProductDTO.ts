@@ -1,5 +1,5 @@
 export interface Product {
-  id: number | string
+  id: number
   title: string
   brand: string
   price: number
@@ -7,4 +7,5 @@ export interface Product {
   description: string
   category: string
   tags: string[]
+  quantity: number
 }

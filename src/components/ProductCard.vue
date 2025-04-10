@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { defineProps, defineEmits } from 'vue'
-import type { Product } from '@/product-services/product-dto.ts'
+import type { Product } from '@/product-services/ProductDTO.ts'
 
 const props = defineProps({
   product: {
@@ -22,7 +22,7 @@ const props = defineProps({
 })
 
 const emit = defineEmits<{
-  (e: 'add-to-cart', id: number | string): void
+  (e: 'add-to-cart', id: number): void
 }>()
 
 function addToCart() {
@@ -31,19 +31,42 @@ function addToCart() {
 </script>
 
 <template>
-  <div class="card bg-base-200 shadow-sm">
-    <figure>
-      <!--: is short for v-bind, meaning dynamically bind attributes and so on-->
-      <img :src="product.thumbnail" :alt="product.title" />
+  <div class="card bg-base-100 card-border border-base-300 card-sm">
+    <figure class="m-2 bg-base-200/50 rounded-[calc(var(--radius-box)-.5rem)]">
+      <img
+        class="rounded-[calc(var(--radius-box)-.5rem)]"
+        :src="product.thumbnail"
+        :alt="product.title"
+      />
+      <!-- Colon : is short for v-bind, meaning dynamically bind attributes and so on-->
     </figure>
-    <div class="card-body">
-      <h2 class="card-title">{{ product.title }}</h2>
-      <p>
-        {{ product.description }}
-      </p>
-      <div class="card-actions justify-end">
-        <!-- @ is short for v-on, a directive which is an event listener-->
-        <button @click="addToCart" class="btn btn-primary">Buy Now</button>
+    <div class="card-body gap-4">
+      <h2 class="flex items-center justify-between">
+        <span class="text-sm font-semibold">{{ product.title }}</span>
+        <span class="badge badge-accent badge-sm">{{ product.category }}</span>
+      </h2>
+      <div>
+        <p class="text-sm opacity-60">{{ product.description }}</p>
+      </div>
+      <div class="flex items-center justify-between mt-8">
+        <span class="text-2xl font-semibold">€{{ product.price }}</span>
+        <button class="btn btn-outline btn-primary btn-sm" @click="addToCart">
+          <p>Add to cart</p>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+            />
+          </svg>
+        </button>
       </div>
     </div>
   </div>

@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import ProductCard from './ProductCard.vue'
-import type { Product } from '@/product-services/product-dto.ts'
+import type { Product } from '@/product-services/ProductDTO.ts'
+import { useCartStore } from '@/stores/cartStore.ts'
 
 const products = ref<Product[]>([])
+const cartStore = useCartStore()
 
 onMounted(() => {
   fetchProducts()
@@ -14,15 +16,13 @@ async function fetchProducts() {
     const response = await fetch('https://dummyjson.com/products/category/sunglasses')
     const data = await response.json()
     products.value = data.products
-    console.log(products.value)
   } catch (error) {
     console.error('Error fetching products:', error)
   }
 }
 
-function handleAddToCart(productId: number | string) {
-  // TODO: Handle adding product to cart
-  console.log(`Adding product ${productId} to cart`)
+function handleAddToCart(productId: number) {
+  cartStore.addToCart(productId)
 }
 </script>
 
@@ -33,8 +33,11 @@ function handleAddToCart(productId: number | string) {
       v-for="product in products"
       :key="product.id"
       :product="product"
-      @add-to-cart="handleAddToCart"
+      @add-to-cart="handleAddToCart(product.id)"
     />
+  </div>
+  <div>
+    <p>{{ cartStore.cartCount }}</p>
   </div>
 </template>
 <style scoped></style>
