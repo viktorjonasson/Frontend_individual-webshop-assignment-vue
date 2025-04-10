@@ -6,9 +6,9 @@ const cartStore = useCartStore()
 </script>
 
 <template>
-  <header>
+  <header class="sticky top-5 z-50">
     <nav>
-      <div class="navbar bg-primary shadow-lg rounded-box">
+      <div class="navbar bg-base-100/80 shadow-lg rounded-box">
         <div class="flex-1">
           <a class="btn btn-ghost text-xl">
             <RouterLink to="/">Home</RouterLink>
@@ -41,8 +41,6 @@ const cartStore = useCartStore()
             >
               <div class="card-body">
                 <span class="text-lg font-bold">{{ cartStore.cartCount }} Items</span>
-                <!--TODO: fetch dynamically or remove-->
-                <span class="text-info">Subtotal: $999</span>
                 <div class="card-actions">
                   <button class="btn btn-primary btn-block">
                     <RouterLink to="/cart">View cart</RouterLink>

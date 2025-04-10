@@ -10,6 +10,7 @@ const props = defineProps({
 })
 
 const cartStore = useCartStore()
+
 const subtotal = computed(() => {
   return (props.product.price * props.product.quantity).toFixed(2)
 })

@@ -36,8 +36,5 @@ function handleAddToCart(productId: number) {
       @add-to-cart="handleAddToCart(product.id)"
     />
   </div>
-  <div>
-    <p>{{ cartStore.cartCount }}</p>
-  </div>
 </template>
 <style scoped></style>
