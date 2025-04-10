@@ -84,8 +84,8 @@ onMounted(() => {
         </svg>
       </button>
     </div>
-    <div class="lg:flex items-start gap-18 my-10">
-      <div class="grow border-t-2 border-base-300">
+    <div class="lg:flex items-start gap-18 my-10 flex-wrap justify-center">
+      <div class="grow border-y-2 border-base-300 mb-15">
         <div class="flow-root">
           <ul role="list" class="divide-y-2 divide-base-300">
             <CartListItem v-for="product in cartProducts" :key="product.id" :product="product" />
@@ -93,7 +93,7 @@ onMounted(() => {
         </div>
       </div>
       <div
-        class="max-w-xl lg:w-sm lg:shrink-0 bg-base-200 rounded-xl border-2 border-base-300 px-6 py-8"
+        class="max-w-xl lg:w-sm lg:shrink-0 bg-base-200 rounded-xl border-2 border-base-300 px-6 py-8 mx-auto"
       >
         <div class="flex justify-between text-lg font-semibold">
           <p>Order total</p>
@@ -108,7 +108,10 @@ onMounted(() => {
         <div class="mt-4 flex justify-center text-center text-sm text-base-content/50">
           <p>
             or{{ ' ' }}
-            <button type="button" class="font-medium text-secondary-content hover:underline">
+            <button
+              type="button"
+              class="font-medium link text-base-content hover:text-base-content/50"
+            >
               <RouterLink to="/">Continue Shopping</RouterLink>
               <span aria-hidden="true"> &rarr;</span>
             </button>

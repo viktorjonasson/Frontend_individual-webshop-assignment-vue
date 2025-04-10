@@ -3,11 +3,13 @@ import { RouterView } from 'vue-router'
 import { onMounted } from 'vue'
 import { useCartStore } from '@/stores/cartStore.ts'
 import NavBar from '@/components/NavBar.vue'
+import { themeChange } from 'theme-change'
 
 const cartStore = useCartStore()
 
 onMounted(() => {
   cartStore.loadCart()
+  themeChange(false)
 })
 </script>
 

@@ -42,8 +42,7 @@ function addToCart() {
     </figure>
     <div class="card-body gap-4">
       <h2 class="flex items-center justify-between">
-        <span class="text-sm font-semibold">{{ product.title }}</span>
-        <span class="badge badge-accent badge-sm">{{ product.category }}</span>
+        <span class="text-lg font-semibold">{{ product.title }}</span>
       </h2>
       <div>
         <p class="text-sm opacity-60">{{ product.description }}</p>

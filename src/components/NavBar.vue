@@ -43,7 +43,58 @@ const cartStore = useCartStore()
             </div>
           </div>
         </div>
-        <div class="flex-none">
+        <div class="flex-none flex gap-x-5">
+          <div class="pt-0.5">
+            <label class="toggle cursor-pointer text-base-content hover:text-base-content/50">
+              <input
+                type="checkbox"
+                class="hidden"
+                data-toggle-theme="cupcake,dim"
+                data-act-class="toggle-primary"
+              />
+              <svg
+                aria-label="sun"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                class="swap-on"
+              >
+                <g
+                  stroke-linejoin="round"
+                  stroke-linecap="round"
+                  stroke-width="2"
+                  fill="none"
+                  stroke="currentColor"
+                >
+                  <circle cx="12" cy="12" r="4"></circle>
+                  <path d="M12 2v2"></path>
+                  <path d="M12 20v2"></path>
+                  <path d="m4.93 4.93 1.41 1.41"></path>
+                  <path d="m17.66 17.66 1.41 1.41"></path>
+                  <path d="M2 12h2"></path>
+                  <path d="M20 12h2"></path>
+                  <path d="m6.34 17.66-1.41 1.41"></path>
+                  <path d="m19.07 4.93-1.41 1.41"></path>
+                </g>
+              </svg>
+
+              <svg
+                aria-label="moon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                class="swap-off"
+              >
+                <g
+                  stroke-linejoin="round"
+                  stroke-linecap="round"
+                  stroke-width="2"
+                  fill="none"
+                  stroke="currentColor"
+                >
+                  <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                </g>
+              </svg>
+            </label>
+          </div>
           <div
             tabindex="0"
             role="button"
@@ -66,7 +117,9 @@ const cartStore = useCartStore()
                     d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                   />
                 </svg>
-                <span class="badge badge-sm indicator-item">{{ cartStore.cartCount }}</span>
+                <span class="badge badge-sm badge-primary indicator-item">
+                  {{ cartStore.cartCount }}
+                </span>
               </div>
             </RouterLink>
           </div>
