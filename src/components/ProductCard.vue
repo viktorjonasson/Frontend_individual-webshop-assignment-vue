@@ -31,8 +31,8 @@ function addToCart() {
 </script>
 
 <template>
-  <div class="card bg-base-100 card-border border-base-300 card-sm">
-    <figure class="m-2 bg-base-200/50 rounded-[calc(var(--radius-box)-.5rem)]">
+  <div class="card bg-base-200 card-border border-base-300 card-sm">
+    <figure class="m-2 bg-base-100/60 rounded-[calc(var(--radius-box)-.5rem)]">
       <img
         class="rounded-[calc(var(--radius-box)-.5rem)]"
         :src="product.thumbnail"
@@ -50,7 +50,7 @@ function addToCart() {
       </div>
       <div class="flex items-center justify-between mt-8">
         <span class="text-2xl font-semibold">€{{ product.price }}</span>
-        <button class="btn btn-outline btn-primary btn-sm" @click="addToCart">
+        <button class="btn btn-primary btn-sm" @click="addToCart">
           <p>Add to cart</p>
           <svg
             xmlns="http://www.w3.org/2000/svg"

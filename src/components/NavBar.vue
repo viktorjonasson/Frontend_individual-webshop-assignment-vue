@@ -6,17 +6,51 @@ const cartStore = useCartStore()
 </script>
 
 <template>
-  <header class="sticky top-5 z-50">
+  <header class="sticky top-0 z-50">
     <nav>
-      <div class="navbar bg-base-100/80 shadow-lg rounded-box">
+      <div class="navbar bg-base-100 border-b-2 border-base-300 px-0">
         <div class="flex-1">
-          <a class="btn btn-ghost text-xl">
-            <RouterLink to="/">Home</RouterLink>
-          </a>
+          <div class="flex flex-wrap gap-x-10 items-center">
+            <div class="flex gap-x-2 items-center hover:text-base-content/50">
+              <a class="text-xl">
+                <RouterLink to="/">Mock<span class="font-bold">Shop</span></RouterLink>
+              </a>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21 11.25v8.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 1 0 9.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1 1 14.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"
+                />
+              </svg>
+            </div>
+            <div class="flex gap-x-4">
+              <a class="hover:text-base-content/50">
+                <RouterLink to="/">Products</RouterLink>
+              </a>
+              <a class="hover:text-base-content/50">
+                <RouterLink to="/">Support</RouterLink>
+              </a>
+              <a class="hover:text-base-content/50">
+                <RouterLink to="/">About us</RouterLink>
+              </a>
+            </div>
+          </div>
         </div>
         <div class="flex-none">
-          <div class="dropdown dropdown-end">
-            <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+          <div
+            tabindex="0"
+            role="button"
+            class="btn btn-ghost btn-circle"
+            aria-label="Go to shopping cart"
+          >
+            <RouterLink to="/cart">
               <div class="indicator">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -34,20 +68,7 @@ const cartStore = useCartStore()
                 </svg>
                 <span class="badge badge-sm indicator-item">{{ cartStore.cartCount }}</span>
               </div>
-            </div>
-            <div
-              tabindex="0"
-              class="card card-compact dropdown-content bg-base-100 z-1 mt-3 w-52 shadow"
-            >
-              <div class="card-body">
-                <span class="text-lg font-bold">{{ cartStore.cartCount }} Items</span>
-                <div class="card-actions">
-                  <button class="btn btn-primary btn-block">
-                    <RouterLink to="/cart">View cart</RouterLink>
-                  </button>
-                </div>
-              </div>
-            </div>
+            </RouterLink>
           </div>
         </div>
       </div>

@@ -33,15 +33,29 @@ function updateItemQuantity(adjustment: number) {
     <div class="ml-4 flex justify-between flex-col grow">
       <div class="flex flex-col">
         <div class="flex justify-between">
-          <h3 class="text-lg">
+          <h3 class="text-lg font-semibold">
             {{ product.title }}
           </h3>
-          <button @click="removeItem" type="button" class="text-primary-content hover:text-primary">
-            x
+          <button
+            @click="removeItem"
+            type="button"
+            class="text-base-content/50 hover:text-base-content"
+            aria-label="Remove item from cart"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-5"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
           </button>
         </div>
-        <p class="text-sm text-base-content/40">€{{ product.price }}/pc</p>
-        <p class="mt-3">€{{ subtotal }}</p>
+        <p class="text-sm text-base-content/50">€{{ product.price }}/pc</p>
+        <p class="mt-3 font-semibold">€{{ subtotal }}</p>
       </div>
       <div class="flex gap-x-2 items-center">
         <button
