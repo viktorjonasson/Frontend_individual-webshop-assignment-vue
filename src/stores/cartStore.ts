@@ -34,6 +34,7 @@ export const useCartStore = defineStore('cart', {
       } else if (item && adjustment === 1) {
         item.quantity++
       }
+      this.saveCart()
     },
 
     clearCart() {
@@ -56,16 +57,6 @@ export const useCartStore = defineStore('cart', {
   getters: {
     cartCount: (state) => {
       return state.cartList.reduce((count, item) => count + item.quantity, 0)
-    },
-
-    isInCart: (state) => (id: number) => {
-      return state.cartList.some((item) => item.id === id)
-      //Some determines whether the specified callback function returns true for any element of an array.
-    },
-
-    getItemQuantity: (state) => (id: number) => {
-      const item = state.cartList.find((item) => item.id === id)
-      return item ? item.quantity : 0
     },
   },
 })

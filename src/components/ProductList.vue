@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import ProductCard from './ProductCard.vue'
-import type { Product } from '@/product-services/ProductDTO.ts'
 import { useCartStore } from '@/stores/cartStore.ts'
 
-const products = ref<Product[]>([])
 const productsByCategory = ref({})
 const cartStore = useCartStore()
 
@@ -40,7 +38,7 @@ async function fetchProductsByCategory(categories: string[]) {
   }
 }
 
-function handleAddToCart(productId: number) {
+function addToCart(productId: number) {
   cartStore.addToCart(productId)
 }
 
@@ -82,7 +80,7 @@ function formatCategoryName(category) {
           v-for="product in products"
           :key="product.id"
           :product="product"
-          @add-to-cart="handleAddToCart(product.id)"
+          @add-to-cart="addToCart(product.id)"
         />
       </div>
     </div>

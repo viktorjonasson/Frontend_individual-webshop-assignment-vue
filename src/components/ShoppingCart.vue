@@ -28,7 +28,7 @@ async function fetchCartProducts() {
 
     // Array to hold the product promises
     const productPromises = cartItems.map(async (cartItem) => {
-      const response = await fetch(`https://dummyjson.com/products/${cartItem.id}`) //concatenate URL with ID.
+      const response = await fetch(`https://dummyjson.com/products/${cartItem.id}`)
       const data = await response.json()
 
       return {

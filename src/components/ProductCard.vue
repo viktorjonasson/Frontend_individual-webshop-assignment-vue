@@ -40,17 +40,17 @@ function addToCart() {
       />
       <!-- Colon : is short for v-bind, meaning dynamically bind attributes and so on-->
     </figure>
-    <div class="card-body gap-4">
-      <h2 class="flex items-center justify-between">
-        <span class="text-lg font-semibold">{{ product.title }}</span>
-      </h2>
-      <div>
+    <div class="card-body justify-between">
+      <div class="flex flex-col gap-3">
+        <h2 class="flex items-center justify-between">
+          <span class="text-lg font-semibold">{{ product.title }}</span>
+        </h2>
         <p class="text-sm opacity-60">{{ product.description }}</p>
       </div>
       <div class="flex items-center justify-between mt-8">
         <span class="text-2xl font-semibold">€{{ product.price }}</span>
         <button class="btn btn-primary btn-sm" @click="addToCart">
-          <p>Add to cart</p>
+          Add to cart
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-5 w-5"
