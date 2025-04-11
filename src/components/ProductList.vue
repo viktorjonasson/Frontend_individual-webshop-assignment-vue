@@ -2,8 +2,9 @@
 import { onMounted, ref } from 'vue'
 import ProductCard from './ProductCard.vue'
 import { useCartStore } from '@/stores/cartStore.ts'
+import type { Product } from '@/product-services/ProductDTO.ts'
 
-const productsByCategory = ref({})
+const productsByCategory = ref<Record<string, Product[]>>({})
 const cartStore = useCartStore()
 
 onMounted(() => {
@@ -24,10 +25,13 @@ async function fetchProductsByCategory(categories: string[]) {
     })
 
     // Wait for all fetches to complete
-    const categoryResults = await Promise.all(categoryPromises)
+    const categoryResults: {
+      category: string
+      products: Product[]
+    }[] = await Promise.all(categoryPromises)
 
     // Convert the results into an object where keys are categories
-    const results = {}
+    const results: Record<string, Product[]> = {}
     categoryResults.forEach((item) => {
       results[item.category] = item.products
     })
@@ -42,7 +46,7 @@ function addToCart(productId: number) {
   cartStore.addToCart(productId)
 }
 
-function formatCategoryName(category) {
+function formatCategoryName(category: string) {
   // Convert 'womens-watches' to 'Women's Watches' etc
   return category
     .split('-')
